@@ -5,14 +5,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { projects } from '@/data/projects';
 
+// --- ANIMAZIONI & ICONE ---
 const FadeSpan = ({ children, langKey }: { children: React.ReactNode, langKey: string }) => (
   <AnimatePresence mode="wait">
     <motion.span
       key={langKey}
-      initial={{ opacity: 0, y: 5, filter: 'blur(4px)' }}
-      animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      exit={{ opacity: 0, y: -5, filter: 'blur(4px)' }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 5 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -5 }}
+      transition={{ duration: 0.3 }}
       className="block text-center w-full" 
     >
       {children}
@@ -20,7 +21,6 @@ const FadeSpan = ({ children, langKey }: { children: React.ReactNode, langKey: s
   </AnimatePresence>
 );
 
-// (Icone omesse per brevità, sono le stesse di prima)
 const ArrowRight = () => (<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>);
 const MailIcon = () => (<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>);
 const TelegramIcon = () => (<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>);
@@ -29,12 +29,12 @@ const InstagramIcon = () => (<svg width="20" height="20" viewBox="0 0 24 24" fil
 export default function Navbar() {
   const { lang, setLang } = useLanguage();
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // Stato per Menu Mobile
 
-  // --- LOGICA AUTOMATICA MENU ---
-  // 1. Progetti Fissi (In Evidenza)
+  // --- LOGICA DATI ---
+  // 1. Progetti Fissi (Navbar Featured)
   const featured = projects.filter(p => p.navbarFeatured).slice(0, 3);
-  
-  // 2. Progetti Recenti (Esclusi quelli già in evidenza)
+  // 2. Progetti Recenti (Esclusi i featured)
   const recent = projects
     .filter(p => !p.navbarFeatured)
     .sort((a, b) => b.date.localeCompare(a.date))
@@ -49,10 +49,8 @@ export default function Navbar() {
       href: "/projects",
       label: lang === 'EN' ? 'Projects' : 'Progetti',
       content: (
-        // Aumentata larghezza griglia per far stare due colonne
         <div className="w-[800px] grid grid-cols-2 gap-12 py-8">
-           
-           {/* COLONNA 1: IN EVIDENZA (Featured) */}
+           {/* COLONNA 1: IN EVIDENZA */}
            <div className="space-y-4">
              <h3 className="text-xs font-bold text-zinc-500 uppercase tracking-widest border-b border-zinc-800 pb-2 mb-4">
                {lang === 'EN' ? 'Featured' : 'In Evidenza'}
@@ -68,8 +66,7 @@ export default function Navbar() {
                </Link>
              ))}
           </div>
-
-          {/* COLONNA 2: RECENTI (Latest / Archive Link) */}
+          {/* COLONNA 2: RECENTI */}
           <div className="space-y-4">
              <h3 className="text-xs font-bold text-zinc-500 uppercase tracking-widest border-b border-zinc-800 pb-2 mb-4">
                 {lang === 'EN' ? 'Latest Additions' : 'Aggiunti di Recente'}
@@ -84,8 +81,6 @@ export default function Navbar() {
                   </div>
                </Link>
              ))}
-             
-             {/* Link all'archivio in fondo */}
              <div className="pt-4 mt-4 border-t border-zinc-800">
                <Link href="/projects" className="flex items-center gap-2 text-indigo-400 hover:text-indigo-300 text-sm font-medium group">
                   {lang === 'EN' ? 'View Full Archive' : 'Vedi Archivio Completo'} 
@@ -167,66 +162,74 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-zinc-950/80 backdrop-blur-xl border-b border-white/5" onMouseLeave={() => setHoveredItem(null)}>
+    <nav className="fixed top-0 left-0 w-full z-50 bg-zinc-950/80 backdrop-blur-xl border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between relative z-50">
-        <Link href="/" className="group flex flex-col">
-          <span className="text-sm font-bold tracking-tight text-white uppercase">
-            Lorenzo Walter Campiello
-          </span>
-          <span className="text-[9px] tracking-[0.2em] text-zinc-500 font-medium group-hover:text-indigo-400 transition-colors">
-            MECH ENG STUDENT
-          </span>
+        
+        {/* LOGO */}
+        <Link href="/" className="group flex flex-col z-50">
+          <span className="text-sm font-bold tracking-tight text-white uppercase">Lorenzo Walter Campiello</span>
+          <span className="text-[9px] tracking-[0.2em] text-zinc-500 font-medium group-hover:text-indigo-400 transition-colors">MECH ENG STUDENT</span>
         </Link>
 
-        <div className="flex items-center gap-2 h-full">
-          <div className="hidden md:flex h-full items-center">
-            
-            <div className="w-[80px] flex justify-center">
-              <Link 
-                href="/"
-                className="text-sm font-bold text-white hover:text-zinc-300 transition-all uppercase tracking-wide transform hover:scale-105 active:scale-95"
-              >
-                HOME
-              </Link>
-            </div>
-
-            {Object.entries(menuItems).map(([key, item]) => (
-              <div 
-                key={key}
-                className="h-full flex items-center justify-center w-[100px]" 
-                onMouseEnter={() => setHoveredItem(key)}
-              >
-                <Link 
-                  href={item.href}
-                  className={`text-xs font-medium transition-colors uppercase tracking-wide w-full flex justify-center py-4 ${hoveredItem === key ? 'text-white' : 'text-zinc-400 hover:text-zinc-200'}`}
-                >
+        {/* --- DESKTOP MENU --- */}
+        <div className="hidden md:flex items-center gap-2 h-full">
+           <div className="w-[80px] flex justify-center">
+              <Link href="/" className="text-sm font-bold text-white hover:text-zinc-300 transition-all uppercase tracking-wide transform hover:scale-105 active:scale-95">HOME</Link>
+           </div>
+           {Object.entries(menuItems).map(([key, item]) => (
+              <div key={key} className="h-full flex items-center justify-center w-[100px]" onMouseEnter={() => setHoveredItem(key)}>
+                <Link href={item.href} className={`text-xs font-medium transition-colors uppercase tracking-wide w-full flex justify-center py-4 ${hoveredItem === key ? 'text-white' : 'text-zinc-400 hover:text-zinc-200'}`}>
                   <FadeSpan langKey={lang}>{item.label}</FadeSpan>
                 </Link>
               </div>
-            ))}
-          </div>
+           ))}
+        </div>
 
-          <div className="h-4 w-[1px] bg-zinc-800 hidden md:block mx-4"></div>
-
-          <button 
-            onClick={() => setLang(lang === 'EN' ? 'IT' : 'EN')}
-            className="flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 rounded-full px-3 py-1 transition-all cursor-pointer"
-          >
+        {/* --- MOBILE CONTROLS --- */}
+        <div className="flex items-center gap-4 z-50">
+          <button onClick={() => setLang(lang === 'EN' ? 'IT' : 'EN')} className="flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 rounded-full px-3 py-1 transition-all">
             <span className={`text-[10px] font-bold ${lang === 'EN' ? 'text-white' : 'text-zinc-500'}`}>EN</span>
             <span className="text-zinc-600 text-[10px]">/</span>
             <span className={`text-[10px] font-bold ${lang === 'IT' ? 'text-white' : 'text-zinc-500'}`}>IT</span>
           </button>
+          
+          {/* HAMBURGER BUTTON (Visibile solo su Mobile) */}
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 text-white text-xl">
+            {mobileMenuOpen ? "✕" : "☰"}
+          </button>
         </div>
       </div>
 
+      {/* --- MOBILE FULLSCREEN MENU --- */}
       <AnimatePresence>
-        {hoveredItem && (
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 bg-zinc-950 z-40 pt-32 px-6 md:hidden flex flex-col gap-8 h-screen"
+          >
+            <Link href="/" onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-white border-b border-zinc-800 pb-4">HOME</Link>
+            {Object.entries(menuItems).map(([key, item]) => (
+              <Link key={key} href={item.href} onClick={() => setMobileMenuOpen(false)} className="text-2xl font-bold text-zinc-400 hover:text-white border-b border-zinc-800 pb-4">
+                {item.label}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* --- DESKTOP DROPDOWN (Solo su schermi grandi) --- */}
+      <AnimatePresence>
+        {hoveredItem && !mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }} 
-            className="absolute top-16 left-0 w-full bg-zinc-950/95 backdrop-blur-3xl border-b border-white/5 overflow-hidden shadow-2xl origin-top"
+            className="absolute top-16 left-0 w-full bg-zinc-950/95 backdrop-blur-3xl border-b border-white/5 overflow-hidden shadow-2xl origin-top hidden md:block"
+            onMouseEnter={() => setHoveredItem(hoveredItem)}
+            onMouseLeave={() => setHoveredItem(null)}
           >
             <div className="max-w-7xl mx-auto px-6">
               <AnimatePresence mode="wait">
