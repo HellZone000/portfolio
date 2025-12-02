@@ -46,7 +46,7 @@ export default function ProjectsPage() {
 
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12 border-b border-white/10 pb-6">
           <div className="flex flex-wrap gap-2">
-            {['All', 'CNC', '3D Printing', 'Robotics'].map((type) => (
+            {['All', 'CNC', '3D Print', 'CAD', 'Electronics', 'Metal Art', 'Engineering / Manufacturing'].map((type) => (
               <button
                 key={type}
                 onClick={() => setFilterType(type as any)}

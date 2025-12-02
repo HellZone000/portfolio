@@ -32,9 +32,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // Stato per Menu Mobile
 
   // --- LOGICA DATI ---
-  // 1. Progetti Fissi (Navbar Featured)
   const featured = projects.filter(p => p.navbarFeatured).slice(0, 3);
-  // 2. Progetti Recenti (Esclusi i featured)
   const recent = projects
     .filter(p => !p.navbarFeatured)
     .sort((a, b) => b.date.localeCompare(a.date))
@@ -50,7 +48,6 @@ export default function Navbar() {
       label: lang === 'EN' ? 'Projects' : 'Progetti',
       content: (
         <div className="w-[800px] grid grid-cols-2 gap-12 py-8">
-           {/* COLONNA 1: IN EVIDENZA */}
            <div className="space-y-4">
              <h3 className="text-xs font-bold text-zinc-500 uppercase tracking-widest border-b border-zinc-800 pb-2 mb-4">
                {lang === 'EN' ? 'Featured' : 'In Evidenza'}
@@ -66,7 +63,6 @@ export default function Navbar() {
                </Link>
              ))}
           </div>
-          {/* COLONNA 2: RECENTI */}
           <div className="space-y-4">
              <h3 className="text-xs font-bold text-zinc-500 uppercase tracking-widest border-b border-zinc-800 pb-2 mb-4">
                 {lang === 'EN' ? 'Latest Additions' : 'Aggiunti di Recente'}
@@ -100,16 +96,16 @@ export default function Navbar() {
             <h3 className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4">Bio</h3>
              <p className="text-base text-zinc-300 leading-relaxed max-w-md">
               {lang === 'EN' 
-                ? "Studying Mechanical Engineering at Politecnico di Torino. Bridging the gap between physical mechanics and digital software."
-                : "Studio Ingegneria Meccanica al Politecnico di Torino. Colmo il divario tra meccanica fisica e software digitale."}
+                ? "I was born in 2006, I study Mechanical Engineering at Politecnico di Torino, and turn ideas into concrete systems: I design, model, and build them. I navigate between mechanics, electronics, and automation, managing every phase from concept to commissioning. I seek challenges that require autonomy, precision, and engineering vision."
+                : "Nato nel 2006, studio Ingegneria Meccanica al Politecnico di Torino e trasformo idee in sistemi concreti: li progetto, li modello e li costruisco. Mi muovo tra meccanica, elettronica e automazione, curando ogni fase dal concept alla messa in funzione. Cerco sfide che richiedano autonomia, precisione e visione ingegneristica."}
             </p>
           </div>
           <div>
              <h3 className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4">Tech Stack</h3>
              <ul className="text-zinc-400 space-y-2 font-mono text-sm">
-               <li>Fusion 360 / SolidWorks</li>
-               <li>React / Next.js / TypeScript</li>
-               <li>Python / C++ / Arduino</li>
+               <li>Fusion360, CNC, 3D printing</li>
+               <li>Electronics, Heat engines, Welding</li>
+               <li>Woodworking, Python, C++, Arduino</li>
              </ul>
           </div>
         </div>
@@ -162,10 +158,8 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-zinc-950/80 backdrop-blur-xl border-b border-white/5">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-zinc-950/80 backdrop-blur-xl border-b border-white/5" onMouseLeave={() => setHoveredItem(null)}>
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between relative z-50">
-        
-        {/* LOGO */}
         <Link href="/" className="group flex flex-col z-50">
           <span className="text-sm font-bold tracking-tight text-white uppercase">Lorenzo Walter Campiello</span>
           <span className="text-[9px] tracking-[0.2em] text-zinc-500 font-medium group-hover:text-indigo-400 transition-colors">MECH ENG STUDENT</span>
@@ -193,7 +187,6 @@ export default function Navbar() {
             <span className={`text-[10px] font-bold ${lang === 'IT' ? 'text-white' : 'text-zinc-500'}`}>IT</span>
           </button>
           
-          {/* HAMBURGER BUTTON (Visibile solo su Mobile) */}
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 text-white text-xl">
             {mobileMenuOpen ? "✕" : "☰"}
           </button>
@@ -219,8 +212,9 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* --- DESKTOP DROPDOWN (Solo su schermi grandi) --- */}
+      {/* --- DESKTOP DROPDOWN --- */}
       <AnimatePresence>
+        {/* CORREZIONE: Ora si apre se hoveredItem ESISTE (non solo se è work) */}
         {hoveredItem && !mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
@@ -228,8 +222,8 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }} 
             className="absolute top-16 left-0 w-full bg-zinc-950/95 backdrop-blur-3xl border-b border-white/5 overflow-hidden shadow-2xl origin-top hidden md:block"
-            onMouseEnter={() => setHoveredItem(hoveredItem)}
-            onMouseLeave={() => setHoveredItem(null)}
+            onMouseEnter={() => setHoveredItem(hoveredItem)} // Mantieni aperto se il mouse scende
+            onMouseLeave={() => setHoveredItem(null)} // Chiudi se esce
           >
             <div className="max-w-7xl mx-auto px-6">
               <AnimatePresence mode="wait">
@@ -240,7 +234,8 @@ export default function Navbar() {
                   exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
                   transition={{ duration: 0.25, ease: "easeInOut" }}
                 >
-                  {menuItems[hoveredItem as keyof typeof menuItems].content}
+                  {/* Renderizza il contenuto specifico dell'item hoverato */}
+                  {menuItems[hoveredItem as keyof typeof menuItems]?.content}
                 </motion.div>
               </AnimatePresence>
             </div>

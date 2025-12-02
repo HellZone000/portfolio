@@ -1,11 +1,18 @@
 'use client';
 
+//github update:
+// git add .
+// git commit -m "patch name"
+// git push
+// or git push --force
+
 import Mechanism3D from "@/components/Mechanism3D";
 import Navbar from "@/components/Navbar";
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion'; 
 import { useLanguage } from '@/context/LanguageContext';
 import { projects } from '@/data/projects';
+import ScrollArrow from '@/components/ScrollArrow';
 
 function FadeText({ children, langKey }: { children: React.ReactNode, langKey: string }) {
   return (
@@ -38,49 +45,43 @@ type Content = {
   commissionsText: string;
   ctaButton: string;
   footerRights: string;
-  stackLabel: string; // Aggiunto per tradurre anche l'etichetta stack se vuoi
+  stackLabel: string; 
 };
 
 const translations: Record<'EN' | 'IT', Content> = {
   EN: {
-    heroTitle: "From abstract idea to \n functional machine.",
+    heroTitle: "Design. Build. Iterate.",
     heroSubtitle: "Hi, I'm Lorenzo. Mechanical Engineering student at Politecnico di Torino.",
-    // Aggiornato: focus su prototipazione e creazione totale
     heroRole: "Specialized in rapid prototyping, CAD design, and bringing concepts to physical reality.",
     masterpieceLabel: "MASTERPIECE",
     masterpieceLink: "Explore Details ->",
     projectsTitle: "Selected Works",
     projectsLink: "View Full Archive",
     aboutTitle: "About",
-    // Traduzione fedele del tuo nuovo testo
-    aboutText: "I study Mechanical Engineering at Politecnico di Torino and turn ideas into concrete systems: I design, model, and build them. I navigate between mechanics, electronics, and automation, managing every phase from concept to commissioning. I seek challenges that require autonomy, precision, and engineering vision.",
+    aboutText: "I was born in 2006, I study Mechanical Engineering at Politecnico di Torino, and turn ideas into concrete systems: I design, model, and build them. I navigate between mechanics, electronics, and automation, managing every phase from concept to commissioning. I seek challenges that require autonomy, precision, and engineering vision.",
     contactBtn: "Contact Me",
     commissionsTitle: "Commissions",
-    // Aggiornato ai servizi reali
     commissionsText: "Available for custom CAD design, CNC manufacturing, 3D printing, and precision metalworking.",
     ctaButton: "Start a project",
     footerRights: "Lorenzo Walter Campiello. All rights reserved.",
-    stackLabel: "Stack: Fusion360, Welding, CNC, 3D printing, Electronics"
+    stackLabel: "Stack: Fusion360, CNC, 3D printing, Electronics, Heat engines, Welding, Woodworking, Python, C++, Arduino"
   },
   IT: {
-    heroTitle: "Dall'idea astratta alla \n macchina funzionante.",
+    heroTitle: "Progettazione. Costruzione. Iterazione.",
     heroSubtitle: "Ciao, sono Lorenzo. Studente di Ingegneria Meccanica al Politecnico di Torino.",
-    // Aggiornato
     heroRole: "Mi occupo di prototipazione rapida, design CAD e trasformazione di concetti in realtà fisica.",
-    masterpieceLabel: "INGEGNERISTICO",
+    masterpieceLabel: "CAPOLAVORO",
     masterpieceLink: "Esplora Dettagli ->",
     projectsTitle: "Lavori Selezionati",
     projectsLink: "Vedi Archivio Completo",
     aboutTitle: "Chi Sono",
-    // Il tuo testo esatto
-    aboutText: "Studio ingegneria meccanica al Politecnico di Torino e trasformo idee in sistemi concreti: li progetto, li modello e li costruisco. Mi muovo tra meccanica, elettronica e automazione, curando ogni fase, dal concept alla messa in funzione. Cerco sfide che richiedano autonomia, precisione e visione ingegneristica.",
+    aboutText: "Sono nato nel 2006, studio ingegneria meccanica al Politecnico di Torino, e trasformo idee in sistemi concreti: li progetto, li modello e li costruisco. Mi muovo tra meccanica, elettronica e automazione, curando ogni fase, dal concept alla messa in funzione. Cerco sfide che richiedano autonomia, precisione e visione ingegneristica.",
     contactBtn: "Contattami",
     commissionsTitle: "Commissioni",
-    // Aggiornato
     commissionsText: "Disponibile per progettazione CAD, lavorazioni CNC, stampa 3D e lavorazione metalli di precisione.",
     ctaButton: "Inizia un progetto",
     footerRights: "Lorenzo Walter Campiello. Tutti i diritti riservati.",
-    stackLabel: "Stack: Fusion360, Saldatura, CNC, 3D printing, Elettronica"
+    stackLabel: "Stack: Fusion360, CNC, Stampa 3D, Elettronica, Motori termici, Saldatura, Woodworking, Python, C++, Arduino"
   }
 };
 
@@ -114,6 +115,8 @@ export default function Home() {
                </div>
             </div>
           </div>
+          {/* FRECCIA AGGIUNTA QUI */}
+          <ScrollArrow />
         </section>
 
         {/* MASTERPIECE */}
@@ -174,7 +177,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CONTACT & ABOUT (Testi Aggiornati) */}
+        {/* CONTACT & ABOUT */}
         <section id="contact" className="py-24 max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 bg-zinc-950/90 relative z-10 border-t border-white/5">
           <div>
             <h2 className="text-2xl font-semibold mb-6 text-white">{t.aboutTitle}</h2>
