@@ -86,17 +86,19 @@ export default function ProjectDetail() {
               </div>
             )}
 
-            {/* GALLERY GRID REALE */}
+            {/* GALLERY GRID (Masonry / Puzzle Style) */}
             {project.gallery && (
               <div className="space-y-6">
                 <h3 className="text-xl font-bold text-white">{lang === 'EN' ? 'Gallery' : 'Galleria'}</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                {/* CSS Columns per effetto Masonry senza tagliare */}
+                <div className="columns-1 md:columns-2 gap-4 space-y-4">
                   {project.gallery.map((img, i) => (
-                    <div key={i} className="aspect-[4/3] bg-zinc-900 rounded-xl border border-white/5 overflow-hidden relative group cursor-zoom-in">
+                    <div key={i} className="relative group cursor-zoom-in break-inside-avoid">
                        <img 
                          src={img} 
                          alt={`Gallery ${i}`}
-                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                         className="w-full h-auto rounded-xl border border-white/5 transition-transform duration-500 group-hover:scale-[1.02]"
                        />
                     </div>
                   ))}

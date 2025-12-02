@@ -21,7 +21,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'cnc-machine',
-    title: 'Custom 3-Axis CNC',
+    title: 'DIY CNC Machine',
     date: '2024-02',
     type: 'CNC', 
     description: {
@@ -40,12 +40,12 @@ export const projects: Project[] = [
     image: "/images/cnc/frame-structure.jpg",
     // TUTTE LE ALTRE IMMAGINI NELLA GALLERIA
     gallery: [
-      "/images/cnc/machine-enclosure.jpg", // image_15.png (Macchina finita nel box)
-      "/images/cnc/milling-action.jpg",    // image_4.png (Lavorazione in corso)
-      "/images/cnc/result-elephant.jpg",   // image_9.png (Elefante)
-      "/images/cnc/result-woman.jpg",      // image_24.png (Donna)
-      "/images/cnc/result-ship.jpg",       // image_31.png (Veliero)
-      "/images/cnc/result-cuttingboard.jpg"// image_21.png (Tagliere)
+      "/images/cnc/machine-enclosure.jpg",
+      "/images/cnc/milling-action.jpg",    
+      "/images/cnc/result-elephant.jpg",   
+      "/images/cnc/result-woman.jpg",    
+      "/images/cnc/result-ship.jpg",      
+      "/images/cnc/result-cuttingboard.jpg"
     ], 
     videoUrl: "rlnyZ306_eU", 
     featured: true,
@@ -57,7 +57,7 @@ export const projects: Project[] = [
   // Smart solarpanel
   {
   id: 'dual-axis-solar-tracker',
-  title: 'Dual-Axis Solar Tracker',
+  title: 'Solar Tracker',
   date: '2023-11',
   type: 'Electronics',
   description: {
@@ -87,7 +87,7 @@ export const projects: Project[] = [
   // KTM engine rebuild
   {
   id: 'ktm-125-engine-rebuild',
-  title: 'KTM 125 EXC Engine Rebuild',
+  title: 'KTM Engine Rebuild',
   date: '2024-09',
   type: 'Engineering / Manufacturing',
   description: {
@@ -112,6 +112,125 @@ export const projects: Project[] = [
   navbarFeatured: false,
   size: 'medium'
   },
+  // Honda engine rebuild
+  {
+  id: 'honda-glr125-engine-restoration',
+  title: 'Honda Engine Restoration',
+  date: '2025-10',
+  type: 'Engineering / Manufacturing',
+  description: {
+    EN: "Complete engine restoration and reverse-engineering of a Honda GLR125's hareness without technical documentation.",
+    IT: "Restauro completo motore e reverse-engineering elettrico dell'hareness di un Honda GLR125 in assenza di documentazione tecnica."
+  },
+  fullDescription: {
+    EN: "This project focused on the resurrection of a Honda GLR125 internal combustion engine acquired in a non-operative state. The primary engineering challenge lay in the wiring harness, which lacked schematic documentation; I performed a complete reverse-engineering of the electrical system using continuity testing to identify and map the ignition, charging, and ECU pinouts.\n\nMechanically, the project required sourcing and integrating essential missing components, including the high-voltage ignition coil, voltage regulator, and fuel pump assembly. The project concluded with the successful startup and tuning of the engine, which is now the designated power unit for an upcoming custom-fabricated drift kart chassis.",
+    IT: "Questo progetto si è concentrato sulla resurrezione di un motore a combustione interna Honda GLR125 acquisito in stato non operativo. La sfida ingegneristica principale risiedeva nel cablaggio, privo di schemi tecnici; ho eseguito un reverse-engineering completo dell'impianto elettrico tramite test di continuità per identificare e mappare i pinout di accensione, ricarica ed ECU.\n\nMeccanicamente, il progetto ha richiesto il reperimento e l'integrazione di componenti essenziali mancanti, tra cui la bobina di accensione ad alta tensione, il regolatore di tensione e il gruppo pompa carburante. Il progetto si è concluso con l'avviamento e la messa a punto del motore, che è ora l'unità motrice designata per un futuro telaio drift kart di fabbricazione artigianale."
+  },
+  techStack: ["Reverse Engineering", "Electrical Diagnostics", "Internal Combustion Engines", "Wiring Harness Design", "System Integration"],
+  image: "/images/honda_rebuild/background.jpg",
+  gallery: [
+      "/images/honda_rebuild/closeuphareness.jpg", 
+      "/images/honda_rebuild/hareness.jpg", 
+      "/images/honda_rebuild/fuelpump.jpg", 
+      "/images/honda_rebuild/pinion.jpg", 
+      "/images/honda_rebuild/sidedirty.jpg", 
+      "/images/honda_rebuild/frontdirty.jpg", 
+      "/images/honda_rebuild/package.jpg"
+  ],
+  videoUrl: "mGn4c5E9y-I", 
+  featured: true,
+  masterpiece: false,
+  navbarFeatured: false,
+  size: 'medium'
+  },
+  // Fuel dispenser
+  {
+  id: '3d-printed-fuel-dispenser',
+  title: 'Fuel Pump',
+  date: '2025-11',
+  type: '3D Print',
+  description: {
+    EN: "Ergonomic 3D-printed fuel nozzle with integrated electric pump for precision spill-free motorcycle refueling.",
+    IT: "Pistola erogatrice stampata in 3D con pompa elettrica integrata per rifornimenti moto precisi e senza perdite."
+  },
+  fullDescription: {
+    EN: "Designed to eliminate fuel spills and ergonomic difficulties during two-stroke refueling, in this project I utilized Fusion 360 to engineer a fully functional handheld dispensing system. The core mechanism repurposes an automotive fuel pump controlled by a custom-designed, spring-loaded trigger switch housed within the handle.\n\nA critical engineering consideration was material compatibility: recognizing that standard PETG degrades upon contact with gasoline, the internal geometry was designed to route the fuel hose continuously through the shell, ensuring the fluid never contacts the structural plastic. The system includes a custom-engineered jerry can cap with an integrated breather valve and gasket, ensuring pressure equalization and a hermetic seal during operation.",
+    IT: "Progettato per eliminare i versamenti di carburante e le difficoltà ergonomiche durante il rifornimento dei motori a due tempi, in questo progetto ho utilizzato Fusion 360 per ingegnerizzare un sistema di erogazione portatile perfettamente funzionante. Il meccanismo centrale riutilizza una pompa carburante automotive, controllata da un interruttore a grilletto caricato a molla alloggiato nell'impugnatura.\n\nUna considerazione ingegneristica critica è stata la compatibilità dei materiali: sapendo che il PETG standard si degrada a contatto con la benzina, la geometria interna è stata progettata per far passare il tubo del carburante attraverso il guscio senza interruzioni, garantendo che il fluido non tocchi mai la plastica strutturale. Il sistema include un tappo per tanica progettato su misura con valvola di sfiato e guarnizione integrate, assicurando l'equalizzazione della pressione e una tenuta ermetica durante l'uso."
+  },
+  techStack: ["Fusion 360", "PETG 3D Printing", "Fluid Dynamics", "Automotive Parts", "Rapid Prototyping"],
+  image: "/images/fuel_pump/cad2.jpg",
+  gallery: [
+      "/images/fuel_pump/finished.jpg",
+      "/images/fuel_pump/switchcloseup.jpg",
+      "/images/fuel_pump/cad2.jpg",
+      "/images/fuel_pump/cad.jpg",
+      "/images/fuel_pump/tankcap.jpg",
+      "/images/fuel_pump/section.jpg"
+  ],
+  videoUrl: "vQqMiEAs4IA", 
+  featured: false,
+  masterpiece: false,
+  navbarFeatured: false,
+  size: 'medium'
+  },
+  //metal hearth
+  {
+  id: 'welded-rose-sculpture',
+  title: 'Welded Steel Rose',
+  date: '2025-02',
+  type: 'Metal Art',
+  description: {
+    EN: "Hand-fabricated steel sculpture featuring manual sheet forming, precision TIG welding, and mirror surface finishing.",
+    IT: "Scultura in acciaio realizzata a mano tramite formatura della lamiera, saldatura TIG di precisione e finitura a specchio."
+  },
+  fullDescription: {
+    EN: "This project explores the artistic application of industrial fabrication techniques. Constructed from 1.5mm mild steel sheet, structural chain, and pickled tubing, the composition relies on precise cold forming and TIG welding. Each petal was individually cut and manually shaped to achieve organic curvature before being welded to the stem. The heart-shaped frame was rigidized by welding specific chain links to maintain geometry without compromising the visual flow. The post-processing phase involved extensive rotary wire wheel abrasion to uniform the surface texture, followed by the application of a protective clear lacquer to prevent oxidation while preserving the raw metallic aesthetic.",
+    IT: "Questo progetto esplora l'applicazione artistica delle tecniche di fabbricazione industriale. Costruita partendo da lamiera di acciaio dolce da 1,5 mm, catena strutturale e tubi decapati, la composizione si basa sulla formatura a freddo e sulla saldatura TIG di precisione. Ogni petalo è stato tagliato singolarmente e modellato manualmente per ottenere una curvatura organica prima di essere saldato allo stelo. La cornice a forma di cuore è stata irrigidita saldando maglie specifiche della catena per mantenere la geometria senza compromettere il flusso visivo. La fase di post-elaborazione ha comportato un'estesa abrasione con spazzola rotativa per uniformare la texture superficiale, seguita dall'applicazione di una vernice trasparente protettiva per prevenire l'ossidazione preservando l'estetica metallica grezza."
+  },
+  techStack: ["TIG Welding", "Sheet Metal Forming", "Surface Finishing", "Metal Fabrication", "Creative Design"],
+  image: "/images/metal_rose/rosecloseup.jpg",
+  gallery: [
+      "/images/metal_rose/rosecloseup.jpg",
+      "/images/metal_rose/finished.jpg",
+      "/images/metal_rose/rosemade.jpg",
+      "/images/metal_rose/rose.jpg",
+      "/images/metal_rose/parts.jpg",
+      "/images/metal_rose/leaves.jpg",
+      "/images/metal_rose/weldedchain.jpg",
+      "/images/metal_rose/chain.jpg"
+  ],
+  featured: false,
+  masterpiece: false,
+  navbarFeatured: false,
+  size: 'medium'
+  },
+  // Whiskey smoker
+  {
+  id: 'cnc-whiskey-smoker',
+  title: 'Whiskey Smoker',
+  date: '2025-06',
+  type: 'CNC',
+  description: {
+    EN: "Precision 2-sided CNC machining of olive wood, featuring custom probing logic for perfect alignment.",
+    IT: "Lavorazione CNC su 2 lati in legno d'ulivo, con logica di tastatura 3D custom per un allineamento perfetto."
+  },
+  fullDescription: {
+    EN: "I designed and manufactured this whiskey smoker using Fusion 360 and my custom CNC router. The project presented a specific manufacturing challenge: machining complex dual-sided geometry on a standard 3-axis system. To address this, I engineered a two-sided milling operation. The critical success factor was the alignment strategy; after flipping the stock, I utilized a custom-scripted 3D probe routine to reference the central bore as the new machine zero, ensuring perfect concentricity between the top and bottom features. \n\nI selected solid olive wood for its high density and aesthetic grain. The assembly features a precision fit for the stainless steel mesh where the wood chips are placed for burning. Finally, the piece is finished with food-grade mineral oil to ensure durability and thermal resistance.",
+    IT: "Ho progettato questo affumicatore per whiskey utilizzando Fusion 360 e l'ho realizzato con la mia CNC. Il progetto presentava una sfida di produzione: lavorare geometrie complesse su due lati con un sistema standard a 3 assi. Per superare questo problema ho progettato un'operazione di fresatura 'two-sided'. Il fattore critico di successo è stato la strategia di allineamento dopo aver capovolto il pezzo; ho scritto una routine personalizzata per la sonda tastatrice 3D per referenziare il foro centrale come nuovo zero macchina, garantendo una concentricità perfetta tra le lavorazioni superiori e inferiori. \n\nHo scelto come materiale il legno d'ulivo massello per la sua densità e venatura estetica, l'assemblaggio invece include un alloggiamento preciso per la maglia in acciaio, su cui verranno posizionati i trucioli da bruciare. Infine rifinito con olio minerale alimentare per garantire durata e resistenza termica."
+  },
+  techStack: ["Fusion 360 CAM", "CNC Milling", "G-Code Programming", "Probing Routines", "Woodworking"],
+  image: "/images/whiskey_smoker/closedsmoker.jpg",
+  gallery: [
+      "/images/whiskey_smoker/closedsmoker.jpg",
+      "/images/whiskey_smoker/opensmoker.jpg"
+  ],
+  videoUrl: "", 
+  featured: false,
+  masterpiece: false,
+  navbarFeatured: false,
+  size: 'tall'
+  },
+  // tumbler gearbox
   {
     id: 'tumbler-gearbox',
     title: 'tumbler gearbox',
@@ -139,4 +258,7 @@ export const projects: Project[] = [
 //soppalco
 //garage
 //bin covers
-//fuel pump
+//ipad swivel
+//mitutoio comparator box
+//vacuum brush mount
+//whiskey smoker

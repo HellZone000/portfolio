@@ -154,7 +154,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
               <h2 className="text-3xl font-semibold text-white">{t.projectsTitle}</h2>
-              <Link href="/projects" className="text-zinc-400 hover:text-white transition-colors text-sm border border-white/20 px-4 py-2 rounded-full">
+              <Link href="/projects" className="text-indigo-400 hover:text-white transition-colors text-sm border border-white/20 px-4 py-2 rounded-full">
                 {t.projectsLink} →
               </Link>
             </div>
