@@ -1,11 +1,5 @@
 'use client';
 
-//github update:
-// git add .
-// git commit -m "patch name"
-// git push
-// or git push --force
-
 import Mechanism3D from "@/components/Mechanism3D";
 import Navbar from "@/components/Navbar";
 import Link from 'next/link';
@@ -90,7 +84,7 @@ export default function Home() {
   const t = translations[lang] || translations['EN'];
 
   const masterpiece = projects.find(p => p.masterpiece === true);
-  const featuredProjects = projects.filter(p => p.featured === true && p.masterpiece === false).slice(0, 2);
+  const featuredProjects = projects.filter(p => p.featured === true && p.masterpiece === false).slice(0, 4);
 
   return (
     <main className="min-h-screen text-zinc-100 selection:bg-white selection:text-black relative overflow-x-hidden">
@@ -115,7 +109,7 @@ export default function Home() {
                </div>
             </div>
           </div>
-          {/* FRECCIA AGGIUNTA QUI */}
+          {/* FRECCIA SCROLL */}
           <ScrollArrow />
         </section>
 
@@ -130,7 +124,7 @@ export default function Home() {
                    {masterpiece.description[lang]}
                  </p>
                  <div className="pt-4">
-                   <Link href={`/projects/${masterpiece.id}`} className="inline-flex items-center text-white border-b border-white/30 pb-1 hover:text-indigo-400 hover:border-indigo-400 transition-colors">
+                   <Link href={`/projects/${masterpiece.id}`} className="inline-flex items-center text-indigo-400 border-b border-indigo-400/30 pb-1 hover:text-white hover:border-white transition-colors">
                      {t.masterpieceLink}
                    </Link>
                  </div>
@@ -174,6 +168,18 @@ export default function Home() {
                 </Link>
               ))}
             </div>
+
+            {/* --- NUOVO BOTTONE AGGIUNTO QUI IN FONDO ALLA GRIGLIA --- */}
+            <div className="mt-20 flex justify-center">
+              <Link 
+                href="/projects" 
+                className="inline-flex items-center gap-3 px-8 py-3 bg-zinc-900 border border-zinc-700 text-indigo-400 rounded-full font-medium hover:bg-zinc-800 hover:border-indigo-500/50 hover:text-white transition-all shadow-lg group"
+              >
+                {t.projectsLink}
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </Link>
+            </div>
+
           </div>
         </section>
 
