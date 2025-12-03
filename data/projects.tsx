@@ -25,7 +25,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'cnc-machine',
-    title: 'Custom 3-Axis CNC',
+    title: 'DIY CNC',
     date: '2024-02',
     type: 'Engineering / Manufacturing',
     description: {
@@ -35,13 +35,13 @@ export const projects: Project[] = [
     fullDescription: {
       EN: <>
         This project stems from the goal of designing and building a custom CNC machine from scratch, developed as a practical application of the technical skills I've honed over the years. The entire structure was fabricated from pickled steel tubing, manually cut, prepared, and welded with special attention paid to overall rigidity and geometric precision. Flatness was verified through diagonal checks and progressive measurements to ensure optimal alignment of the reference planes.<br/><br/>
-        The work includes not just the mechanical part, but also the machine's entire electronic and electrical system. I designed and wired a complete electrical panel, integrating stepper motor drivers, a spindle inverter, ESP32-based control boards running FluidNC firmware, dedicated power supplies, and safety systems using circuit breakers and safety relays. I implemented emergency stop buttons (E-STOP), proximity sensors for safety, processing door closure monitoring, and interlock logic to ensure reliable operation compliant with good automation practices.<br/><br/>
+        The work includes not just the mechanical part, but also the machine's entire electronic and electrical system. I designed and wired a complete electrical panel, integrating servo motor drivers (750W x 4), a spindle inverter (4kW), ESP32-based control boards running FluidNC firmware, dedicated power supplies, and safety systems using circuit breakers and safety relays. I implemented emergency stop buttons (E-STOP), proximity sensors for safety, processing door closure monitoring, and interlock logic to ensure reliable operation compliant with good automation practices.<br/><br/>
         The machine employs a 3D touch probe for advanced probing operations, leveraging coordinates detected in the Cartesian plane to precisely determine centers, angles, and other geometric references. I developed dedicated macros to simplify zeroing, centering, and surface/angle verification procedures, improving repeatability and efficiency.<br/><br/>
         The worktable was designed with modularity in mind to facilitate workpiece clamping and adapt to different materials, from wood and plastics to technical foams. This project represents a synthesis of my journey: 3D modeling, welding, applied mechanics, electronics, software configuration, automation, and problem-solving. It is the result of an evolved DIY approach, developed entirely independently, from the idea to the functioning machine.
       </>,
       IT: <>
         Questo progetto nasce dall’obiettivo di progettare e costruire da zero una macchina CNC personalizzata, sviluppata come applicazione concreta delle mie competenze tecniche maturate negli anni. L’intera struttura è stata realizzata a partire da tubolari in acciaio decapato, tagliati, preparati e saldati manualmente, con particolare attenzione alla rigidità complessiva e alla precisione geometrica. La planarità è stata verificata tramite controllo delle diagonali e misurazioni progressive per garantire un allineamento ottimale dei piani di riferimento.<br/><br/>
-        Il lavoro include non solo la parte meccanica, ma anche l’intero sistema elettronico ed elettrico della macchina. Ho progettato e cablato un pannello elettrico completo, integrando driver per motori stepper, inverter per il mandrino, schede di controllo basate su ESP32 con firmware FluidNC, alimentatori dedicati, sistemi di protezione tramite magnetotermici e relè di sicurezza. Ho implementato pulsanti di emergenza (E-STOP), sensori di prossimità per la sicurezza, il controllo della chiusura della porta di lavorazione e logiche di interblocco per garantire un funzionamento affidabile e conforme alle buone pratiche dell’automazione.<br/><br/>
+        Il lavoro include non solo la parte meccanica, ma anche l’intero sistema elettronico ed elettrico della macchina. Ho progettato e cablato un pannello elettrico completo, integrando driver per motori servo (750W x 4), inverter per il mandrino (4kW), schede di controllo basate su ESP32 con firmware FluidNC, alimentatori dedicati, sistemi di protezione tramite magnetotermici e relè di sicurezza. Ho implementato pulsanti di emergenza (E-STOP), sensori di prossimità per la sicurezza, il controllo della chiusura della porta di lavorazione e logiche di interblocco per garantire un funzionamento affidabile e conforme alle buone pratiche dell’automazione.<br/><br/>
         La macchina impiega un tastatore 3D per operazioni avanzate di probing, sfruttando le coordinate rilevate nel piano cartesiano per determinare con precisione centri, angoli e altri riferimenti geometrici. Ho sviluppato macro dedicate per semplificare procedure di azzeramento, centratura e verifica di superfici e angoli, migliorando ripetibilità ed efficienza.<br/><br/>
         Il piano di lavoro è stato progettato con criteri di modularità per facilitare il fissaggio del pezzo e adattarsi a materiali differenti, dal legno alle plastiche fino a schiume tecniche. Questo progetto rappresenta una sintesi del mio percorso: modellazione 3D, saldatura, meccanica applicata, elettrica, configurazione software, automazione e problem solving. È il risultato di un approccio DIY evoluto, sviluppato interamente in autonomia, dall’idea alla macchina funzionante.
       </>
@@ -111,15 +111,15 @@ export const projects: Project[] = [
     },
     fullDescription: {
       EN: <>
-        Executed a comprehensive mechanical overhaul of a 2004 KTM 125 EXC two-stroke engine, undertaken entirely independently. Without prior specific experience, the project involved a complete teardown to component level to assess wear and structural integrity. Key operations included piston replacement, gasket renewal, and the complex remediation of stripped threads on the aluminum block caused by previous maintenance failures.<br/><br/>
-        The reassembly phase prioritized strict adherence to OEM torque specifications and tightening sequences. This project demonstrates the practical application of mechanical principles, the ability to interpret technical service manuals, and disciplined diagnostic problem-solving to restore the power unit to optimal operating conditions.
+        Executed a comprehensive mechanical overhaul of a 2004 KTM 125 EXC two-stroke engine, undertaken entirely independently. Without prior specific experience, the project involved a complete teardown to component level to assess wear and structural integrity. Key operations included piston replacement, gasket renewal, and the complex remediation of stripped threads on the aluminum block caused by previous maintenance failures by old owners.<br/><br/>
+        In the reassembly phase I prioritized strict adherence to OEM torque specifications and tightening sequences. This project demonstrates the practical application of mechanical principles, the ability to interpret technical service manuals, and disciplined diagnostic problem-solving to restore the motorcycle to optimal operating conditions.
       </>,
       IT: <>
-        Esecuzione di una revisione meccanica completa di un motore a due tempi KTM 125 EXC del 2004, intrapresa in totale autonomia. Senza esperienza specifica pregressa, il progetto ha comportato lo smontaggio completo a livello dei componenti per valutare l'usura e l'integrità strutturale. Le operazioni chiave hanno incluso la sostituzione del pistone, il rinnovo delle guarnizioni e il complesso ripristino di filettature spanate sul blocco in alluminio, causate da errori di manutenzione precedenti.<br/><br/>
-        La fase di riassemblaggio ha prioritizzato la rigorosa adesione alle specifiche di coppia OEM e alle sequenze di serraggio. Questo progetto dimostra l'applicazione pratica dei principi meccanici, la capacità di interpretare i manuali di servizio tecnico e un approccio disciplinato al problem-solving diagnostico per riportare l'unità motrice a condizioni operative ottimali.
+        Esecuzione di una revisione meccanica completa di un motore a due tempi KTM 125 EXC del 2004, intrapresa in totale autonomia. Senza esperienza specifica pregressa, il progetto ha comportato lo smontaggio completo a livello dei componenti per valutare l'usura e l'integrità strutturale. Le operazioni chiave hanno incluso la sostituzione del pistone, il rinnovo delle guarnizioni e il complesso ripristino di filettature spanate sul blocco in alluminio, causate da errori di manutenzione precedenti da parte di vecchi proprietari.<br/><br/>
+        Nella fase di riassemblaggio ho prioritizzato la rigorosa adesione alle specifiche di coppia OEM e alle sequenze di serraggio. Questo progetto dimostra l'applicazione pratica dei principi meccanici, la capacità di interpretare i manuali di servizio tecnico e un approccio disciplinato al problem-solving diagnostico per riportare la moto in condizioni operative ottimali.
       </>
     },
-    techStack: ["Internal Combustion Engines", "Mechanical Diagnostics", "Thread Repair", "Torque Specs", "Maintenance"],
+    techStack: ["Internal Combustion Engines", "Mechanical Diagnostics", "Thread Repair", "Torque Specs", "Maintenance", "Two Stroke"],
     image: "/images/ktm_rebuild/finished.jpg",
     gallery: [
       "/images/ktm_rebuild/finished.jpg",
@@ -152,7 +152,7 @@ export const projects: Project[] = [
         Meccanicamente, il progetto ha richiesto il reperimento e l'integrazione di componenti essenziali mancanti, tra cui la bobina di accensione ad alta tensione, il regolatore di tensione e il gruppo pompa carburante. Il progetto si è concluso con l'avviamento e la messa a punto del motore, che è ora l'unità motrice designata per un futuro telaio drift kart di fabbricazione artigianale.
       </>
     },
-    techStack: ["Reverse Engineering", "Electrical Diagnostics", "Internal Combustion Engines", "Wiring Harness Design", "System Integration"],
+    techStack: ["Reverse Engineering", "Electrical Diagnostics", "Internal Combustion Engines", "Wiring Harness Design", "System Integration", "Four Stroke"],
     image: "/images/honda_rebuild/background.jpg",
     gallery: [
       "/images/honda_rebuild/closeuphareness.jpg",
@@ -316,9 +316,13 @@ export const projects: Project[] = [
     IT: "Scultura CNC in alto rilievo su Cedro del Libano raffigurante una fusione cervello-albero. Dimostrazione di lavorazione avanzata a 3 assi."
   },
   fullDescription: {
-    EN: <>This project was executed as the capstone work for my Scientific High School diploma, designed to thoroughly test and demonstrate the capabilities of my <Link href="/projects/cnc-machine" className="text-indigo-400 hover:underline">custom CNC machine</Link>. The objective was to transform a solid block of Lebanon Cedar into a complex deep-relief sculpture depicting the anatomical fusion of a human brain and a tree structure.\n\nThe manufacturing process required advanced CAM strategies in Fusion 360, orchestrating a sequence of aggressive roughing operations followed by high-resolution finishing passes and detailed engraving. The workflow tested the machine's rigidity and precision over a prolonged run time. Post-machining, the piece was hand-finished with beeswax to preserve the grain definition and provide a lasting sheen.\n\nThe final artwork was donated to the \"Erasmo da Rotterdam\" Institute in Nichelino, where it remains as a permanent installation.
+    EN: <>This project was executed as the capstone work for my Scientific High School diploma, designed to thoroughly test and demonstrate the capabilities of my <Link href="/projects/cnc-machine" className="text-indigo-400 hover:underline">custom CNC machine</Link>. The objective was to transform a solid block of Lebanon Cedar into a complex deep-relief sculpture depicting the anatomical fusion of a human brain and a tree structure.<br/><br/>
+    The manufacturing process required advanced CAM strategies in Fusion 360, orchestrating a sequence of aggressive roughing operations followed by high-resolution finishing passes and detailed engraving. The workflow tested the machine's rigidity and precision over a prolonged run time. Post-machining, the piece was hand-finished with beeswax to preserve the grain definition and provide a lasting sheen.<br/><br/>
+    The final artwork was donated to the "Erasmo da Rotterdam" highschool in Nichelino, where it remains as a permanent installation.
     </>,
-    IT: <>Questo progetto è stato realizzato come lavoro conclusivo per il mio diploma di Liceo Scientifico, progettato per testare a fondo e dimostrare le capacità della mia <Link href="/projects/cnc-machine" className="text-indigo-400 hover:underline">macchina CNC autocostruita</Link>. L'obiettivo era trasformare un blocco massello di Cedro del Libano in una complessa scultura in alto rilievo, raffigurante la fusione anatomica tra un cervello umano e una struttura arborea.\n\nIl processo produttivo ha richiesto strategie CAM avanzate in Fusion 360, orchestrando una sequenza di operazioni di sgrossatura aggressiva seguite da passate di finitura ad alta risoluzione e incisione dettagliata. Il flusso di lavoro ha testato la rigidità e la precisione della macchina su tempi di esecuzione prolungati. Dopo la lavorazione, il pezzo è stato rifinito a mano con cera d'api per preservare la definizione delle venature e garantire una lucentezza duratura.\n\nL'opera finale è stata donata all'Istituto \"Erasmo da Rotterdam\" di Nichelino, dove rimane come installazione permanente.
+    IT: <>Questo progetto è stato realizzato come lavoro conclusivo per il mio diploma di Liceo Scientifico, progettato per testare a fondo e dimostrare le capacità della mia <Link href="/projects/cnc-machine" className="text-indigo-400 hover:underline">macchina CNC autocostruita</Link>. L'obiettivo era trasformare un blocco massello di Cedro del Libano in una complessa scultura in alto rilievo, raffigurante la fusione anatomica tra un cervello umano e una struttura arborea.<br/><br/>
+    Il processo produttivo ha richiesto strategie CAM avanzate in Fusion 360, orchestrando una sequenza di operazioni di sgrossatura aggressiva seguite da passate di finitura ad alta risoluzione e incisione dettagliata. Il flusso di lavoro ha testato la rigidità e la precisione della macchina su tempi di esecuzione prolungati. Dopo la lavorazione, il pezzo è stato rifinito a mano con cera d'api per preservare la definizione delle venature e garantire una lucentezza duratura.<br/><br/>
+    L'opera finale è stata donata alla scuola superiore "Erasmo da Rotterdam" di Nichelino, dove rimane come installazione permanente.
     </>,
   },
   techStack: ["Fusion 360 CAM", "CNC Milling", "Woodworking", "Surface Finishing", "Artistic Design"],
@@ -338,32 +342,65 @@ export const projects: Project[] = [
   size: 'medium'
   },
   {
-    id: 'tumbler-gearbox',
-    title: 'Tumbler Gearbox',
-    date: '2023-08',
-    type: '3D Print',
-    description: {
-      EN: "Parametric lamp generated with Voronoi algorithms.",
-      IT: "Lampada parametrica generata con algoritmi Voronoi."
-    },
-    fullDescription: {
-      EN: <>An exploration of generative design. The mesh was created using Grasshopper algorithms to simulate organic cell growth.</>,
-      IT: <>Un'esplorazione del design generativo. La mesh è stata creata usando algoritmi Grasshopper per simulare la crescita cellulare organica.</>
-    },
-    techStack: ["Grasshopper", "Rhino 3D", "3D Printing"],
-    image: "/images/lamp-cover.jpg",
-    featured: true,
-    masterpiece: false,
-    navbarFeatured: true,
-    size: 'tall'
-  }
+  id: 'welded-steel-lily',
+  title: 'Welded Steel Lily',
+  date: '2024-06',
+  type: 'Metal Art',
+  description: {
+    EN: "Hand-fabricated steel lily featuring manual cold forming, TIG welding, and oxy-acetylene flame bluing.",
+    IT: "Giglio in acciaio lavorato a mano con formatura a freddo, saldatura TIG e brunitura a fiamma ossidrica."
+  },
+  fullDescription: {
+    EN: <>
+      This project features a steel lily created through cold-forming techniques. I manually shaped the sheet metal to form organic petals and leaves, TIG welding them to a central pickled steel tube stem. A specific detail involves the pistils, which I crafted using TIG filler rods to achieve fine definition.
+      <br /><br />
+      The finishing process was critical to the aesthetic: after cleaning and polishing the assembly, I applied localized heat using an oxy-acetylene torch to burnish the petal tips, achieving a distinct bluish gradient. Finally, the sculpture was coated with a clear lacquer to preserve the metallic finish and prevent oxidation.
+    </>,
+    IT: <>
+      SQuesto progetto presenta un giglio in acciaio realizzato tramite tecniche di formatura a freddo. Ho modellato manualmente la lamiera per formare petali e foglie organiche, saldandoli a TIG su uno stelo centrale in tubo decapato. Un dettaglio specifico riguarda i pistilli, che ho realizzato utilizzando bacchette da riporto TIG per ottenere una definizione fine.
+      <br /><br />
+      Il processo di finitura è stato fondamentale per l'estetica: dopo aver pulito e lucidato l'assemblaggio, ho applicato calore localizzato utilizzando un cannello ossidrico per brunire le punte dei petali, ottenendo una distinta sfumatura bluastra. Infine, la scultura è stata rivestita con una vernice trasparente per preservare la finitura metallica e prevenire l'ossidazione.
+    </>
+  },
+  techStack: ["TIG Welding", "Sheet Metal Forming", "Metal Art", "Metal Finishing", "Creative Fabrication"],
+  image: "/images/metal_lily/finish.jpg",
+  gallery: [
+    "/images/metal_lily/finish.jpg",
+    "/images/metal_lily/closeup.jpg",
+    "/images/metal_lily/leavesclose.jpg",
+    "/images/metal_lily/petal.jpg",
+    "/images/metal_lily/leaves.jpg",
+  ],
+  featured: false,
+  masterpiece: false,
+  navbarFeatured: false,
+  size: 'medium'
+  },
+  // {
+  //   id: 'tumbler-gearbox',
+  //   title: 'Tumbler Gearbox',
+  //   date: '2023-08',
+  //   type: '3D Print',
+  //   description: {
+  //     EN: "Parametric lamp generated with Voronoi algorithms.",
+  //     IT: "Lampada parametrica generata con algoritmi Voronoi."
+  //   },
+  //   fullDescription: {
+  //     EN: <>An exploration of generative design. The mesh was created using Grasshopper algorithms to simulate organic cell growth.</>,
+  //     IT: <>Un'esplorazione del design generativo. La mesh è stata creata usando algoritmi Grasshopper per simulare la crescita cellulare organica.</>
+  //   },
+  //   techStack: ["Grasshopper", "Rhino 3D", "3D Printing"],
+  //   image: "/images/lamp-cover.jpg",
+  //   featured: true,
+  //   masterpiece: false,
+  //   navbarFeatured: true,
+  //   size: 'tall'
+  // }
 ];
 
-//vases
+//all vases with credits
 
 //soppalco
-
-//garage
 
 //bin covers
 
