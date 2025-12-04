@@ -61,7 +61,7 @@ const translations: Record<'EN' | 'IT', Content> = {
     stackLabel: "Stack: Fusion360, CNC, 3D printing, Electronics, Heat engines, Welding, Woodworking, Python, C++, Arduino"
   },
   IT: {
-    heroTitle: "Progettazione. Costruzione. Iterazione.",
+    heroTitle: "Progetta. Costruisci. Itera.",
     heroSubtitle: "Ciao, sono Lorenzo. Studente di Ingegneria Meccanica al Politecnico di Torino.",
     heroRole: "Mi occupo di prototipazione rapida, design CAD e trasformazione di concetti in realtà fisica.",
     masterpieceLabel: "CAPOLAVORO",
